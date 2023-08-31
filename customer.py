@@ -1,11 +1,11 @@
 class Customer:
-    all = []
+    _all_customers = []
 
     def __init__(self, first_name, last_name):
         if isinstance(first_name and last_name, str):
             self.first_name = first_name
             self.last_name = last_name
-            Customer.all.append(self)
+            Customer.all(self)
         else:
             raise ValueError("Please put a valid name")
 
@@ -18,7 +18,14 @@ class Customer:
     def full_name(self):
         full_name = self.first_name + " " + self.last_name
         return full_name
+    
+    @classmethod
+    def all(cls, self):
+        Customer._all_customers.append(self)
 
-cus1 = Customer("Gitau", "Njung'e")
-print(Customer.all)
+cus_1 = Customer("Gitau", "Njung'e")
+cus_2 = Customer("John", "Doe")
+cus_3 = Customer("Kyle", "Jumper")
+
+print(Customer._all_customers)
 
